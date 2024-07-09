@@ -1,0 +1,33 @@
+*{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+body{
+  background-color: #ffe001;
+}
+.inputcon ,.charecterInbox{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 60%;
+}
+.inputcon textarea{
+  background-color: #0a0a0a;
+  color: white;
+  border-radius: 10px;
+}
+.inputcon h1 , .charecterInbox h3{
+  font-weight: bold;
+}
+.inputcon p{
+  color: rgb(84, 83, 83);
+  margin-left: 10px;
+  
+}
+.masterincon{
+  display: flex;
+  justify-content: center;
+}
+.charecterBox{
+  display: flex;
+  justify-content: center;
+}
