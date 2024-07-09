@@ -5,7 +5,8 @@ const Defual = (props) => {
   return (
     <div className='charecterInbox'>
       <h3>Your Text Summary</h3>
-      {props.charecters} Cherecters</div>
+      {props.charecters} Cherecters
+      </div>
   )
 }
 

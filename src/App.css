@@ -31,3 +31,18 @@ body{
   display: flex;
   justify-content: center;
 }
+button{
+  text-transform: uppercase;
+}
+@media screen and (max-width:468px) {
+  body{
+    background-color: darksalmon;
+  }
+  *{
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .inputcon ,.charecterInbox{
+    margin-top: 3%;
+    width: 65%;
+  }
+}
