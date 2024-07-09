@@ -15,11 +15,7 @@ const Input = () => {
         settextin(realtext)
     }
 
-    const speak = () => {
-        let msg = new SpeechSynthesisUtterance();
-        msg.text = textin;
-        window.speechSynthesis.speak(msg);
-    }
+   
     return (
         <>
             <div className="masterincon">
