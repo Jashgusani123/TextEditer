@@ -15,6 +15,7 @@ const Input = () => {
         settextin(realtext)
     }
 
+   
     return (
         <>
             <div className="masterincon">
@@ -23,27 +24,25 @@ const Input = () => {
                     <p>style to your text...✍🏼</p>
                     <textarea rows={10} cols={100} type="text" value={textin} onChange={(e) => {
                         settextin(e.target.value)
-                    }} onKeyUp={(e)=>{
+                    }} onKeyUp={(e) => {
                         setrealtext(e.target.value)
                     }} />
                     <div className="d-grid gap-2 mt-2 d-md-flex justify-content-md-end">
                         <button className="btn btn-primary me-md-2" onClick={() => {
-                          
                             upercase()
                         }} >Capital</button>
                         <button className="btn btn-primary me-md-2 " onClick={() => {
-                            
                             lowercase()
                         }}>Small</button>
                         <button className="btn btn-primary me-md-2" onClick={() => {
-                           
                             reasetbtn()
                         }}>RESET</button>
+                        
                     </div>
                 </div>
             </div>
             <div className="charecterBox">
-            <Charecters charecters={textin.length} />
+                <Charecters charecters={textin.length} />
             </div>
         </>
     )
