@@ -14,8 +14,12 @@ const Input = () => {
     function reasetbtn() {
         settextin(realtext)
     }
+    const speak = () => {
+        let msg = new SpeechSynthesisUtterance();
+        msg.text = textin;
+        window.speechSynthesis.speak(msg);
+    }
 
-   
     return (
         <>
             <div className="masterincon">
@@ -37,7 +41,7 @@ const Input = () => {
                         <button className="btn btn-primary me-md-2" onClick={() => {
                             reasetbtn()
                         }}>RESET</button>
-                        
+                        <button type="submit" onClick={speak} className="btn btn-primary me-md-2">Speak</button>
                     </div>
                 </div>
             </div>
