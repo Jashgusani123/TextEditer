@@ -1,20 +1,13 @@
 import React from 'react'
 
-const Navbar = () => {
-   
+const Navbar = (props) => {
+    
     return (
         <>
-            <div className="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
-                <div className="bg-dark p-4 ">
-                    <h5 class="text-body-emphasis h4">TextEditer</h5>
-                    <span class="text-body-secondary">Do Stlyling...😀</span>
-                </div>
-            </div>
-            <nav className="navbar navbar-dark bg-dark">
+            <nav className={`navbar bg-${props.mode}`}>
                 <div className="container-fluid">
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
+                    <a className={`navbar-brand text-${props.mode==="dark" ? "light":"dark"}`}>TextEditer</a>
+                            <button type="button" className={`btn btn-outline-${props.mode==="dark" ? "light":"dark"} ` }onClick={props.modeset}>{props.mode==="dark" ? "Light":"Dark"}</button>
                 </div>
             </nav>
         </>
