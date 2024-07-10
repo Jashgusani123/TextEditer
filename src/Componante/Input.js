@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Charecters from "./Charecters"
+import Button from './Button'
 
 const Input = (props) => {
     const [textin, settextin] = useState("")
@@ -12,6 +13,8 @@ const Input = (props) => {
         settextin(textin.toLowerCase())
     }
     function reasetbtn() {
+         let text = document.getElementById("textarea")
+        text.style.fontWeight=""
         settextin(realtext)
     }
     function speak() {
@@ -28,6 +31,14 @@ const Input = (props) => {
         let text =textin.split(/[ ]+/)
         settextin(text.join(" "))
     }
+    function selectall(){
+        let text = document.getElementById("textarea")
+        text.select()
+    }
+    function bold(){
+        let text = document.getElementById("textarea")
+        text.style.fontWeight="Bold"
+    }
 
     return (
         <>
@@ -41,12 +52,15 @@ const Input = (props) => {
                         setrealtext(e.target.value)
                     }} />
                     <div style={props.innerstyle} className="d-grid gap-2 mt-2 d-md-flex justify-content-md-end">
-                        <button className="btn btn-primary me-md-2" onClick={upercase} >Capital</button>
-                        <button className="btn btn-primary me-md-2 " onClick={lowercase}>Small</button>
-                        <button className="btn btn-primary me-md-2" onClick={reasetbtn}>RESET</button>
-                        <button type="submit" onClick={speak} className="btn btn-primary me-md-2">Speak</button>
-                        <button type="submit" onClick={copy} className="btn btn-primary me-md-2">Copy</button>
-                        <button type="submit" onClick={RemoveExtra} className="btn btn-primary me-md-2">Remove Extra Space</button>
+                        <Button fun={upercase} name={"Capital"} />
+                        <Button fun={lowercase} name={"Small"} />
+                        <Button fun={reasetbtn} name={"RESET"} />
+                        <Button fun={speak} name={"Speak"} />
+                        <Button fun={copy} name={"Copy"} />
+                        <Button fun={RemoveExtra} name={"Remove Extra Space"} />
+                        <Button fun={selectall} name={"Select All"} />
+                        <Button fun={bold} name={"Bold"} />
+
                     </div>
                 </div>
             </div>

@@ -36,9 +36,7 @@ button{
   text-transform: uppercase;
 }
 @media screen and (max-width:468px) {
-  body{
-    background-color: darksalmon;
-  }
+  
   *{
     font-family: Arial, Helvetica, sans-serif;
   }
@@ -255,15 +253,4 @@ button{
 }
 *::selection{
   background-color: cornflowerblue;
-}
-@keyframes tic {
-  0%{
-    width: 10%;
-  }
-  50%{
-    width: 50%;
-  }
-  100%{
-    width: 100%;
-  }
 }
