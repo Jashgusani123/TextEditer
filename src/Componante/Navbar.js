@@ -6,8 +6,8 @@ const Navbar = () => {
         <>
             <div className="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
                 <div className="bg-dark p-4 ">
-                    <h5 class="text-body-emphasis h4">TextEditer</h5>
-                    <span class="text-body-secondary">Do Stlyling...😀</span>
+                    <h5 className="text-body-emphasis h4">TextEditer</h5>
+                    <span className="text-body-secondary">Do Stlyling...😀</span>
                 </div>
             </div>
             <nav className="navbar navbar-dark bg-dark">

@@ -14,7 +14,9 @@ const Input = () => {
     function reasetbtn() {
         settextin(realtext)
     }
-
+    function speak(){
+        
+    }
    
     return (
         <>
