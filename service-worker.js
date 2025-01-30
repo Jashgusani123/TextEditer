@@ -1,42 +1,27 @@
-const CACHE_NAME = 'my-cache-v1';
-const urlsToCache = [
-  '/',
-  '/index.html',
-  '/static/js/bundle.js',
-  '/static/js/0.chunk.js',
-  '/static/js/main.chunk.js',
-  // Add other assets you want to cache
-];
+// service-worker.js
 
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log('Service Worker: Caching files');
-      return cache.addAll(urlsToCache);
-    })
-  );
+self.addEventListener("install", (event) => {
+  console.log("Service Worker Installed");
+  event.waitUntil(self.skipWaiting()); // Activate immediately
 });
 
-self.addEventListener('activate', (event) => {
-  const cacheWhitelist = [CACHE_NAME];
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (!cacheWhitelist.includes(cacheName)) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
+self.addEventListener("activate", (event) => {
+  console.log("Service Worker Activated");
 });
 
-self.addEventListener('fetch', (event) => {
+self.addEventListener("fetch", (event) => {
+  // This allows the app to work offline
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      // Return the cached response if found, otherwise fetch from network
-      return cachedResponse || fetch(event.request);
+    fetch(event.request).catch(() => {
+      return new Response("You're offline, but don't worry! The app works offline.");
     })
+  );
+});
+
+// Handle notifications
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  event.waitUntil(
+    clients.openWindow("/") // Opens the app when clicked
   );
 });
