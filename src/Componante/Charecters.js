@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Defual = (props) => {
-  console.log(props.charecters);
+  // console.log(props.charecters);
   return (
     <div className='charecterInbox'>
       <h3>Your Text Summary</h3>
