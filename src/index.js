@@ -12,8 +12,24 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Register the service worker
 serviceWorkerRegistration.register();
+
+// Request notification permission when the app is installed
+if ("Notification" in window && "serviceWorker" in navigator) {
+  Notification.requestPermission().then(permission => {
+    if (permission === "granted") {
+      navigator.serviceWorker.ready.then(registration => {
+        registration.showNotification("Welcome to Our PWA! 🎉", {
+          body: "Thank you for installing our app. Enjoy your experience!",
+          icon: "/icons/app-icon.png", // Replace with your app icon
+          badge: "/icons/badge-icon.png",
+          vibrate: [200, 100, 200],
+        });
+      });
+    }
+  });
+}
+
+// Performance monitoring (optional)
+reportWebVitals();
